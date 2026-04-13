@@ -166,7 +166,7 @@ onload="startTimer('');alert(1);//');"
 2. Ingresa cualquier email
 3. Haz clic en **"Next >>"**
 4. 💥 `alert(1)` se ejecuta
-![XSS5](https://github.com/user-attachments/assets/7c7aa36f-9c99-4d96-97cd-4a4672b30637)
+
 ![XSS5v2](https://github.com/user-attachments/assets/5b5aa55c-fe4c-4523-a553-56fcbd390111)
 
 **Lección:** `javascript:` en `href` ejecuta código al hacer clic. También base de Open Redirect attacks.
