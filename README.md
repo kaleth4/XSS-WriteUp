@@ -42,6 +42,7 @@ http://target.com/?q=<script>alert(1)</script>
 # Alternativa si <script> está bloqueado
 <img src=x onerror=alert(1)>
 ```
+![XSS1](https://github.com/user-attachments/assets/7bc9f9aa-c379-47c8-8295-4d3da7aad5b5)
 
 **Lección:** Reflected XSS — se ejecuta una sola vez, entrada directa al DOM.
 
@@ -74,6 +75,7 @@ http://target.com/?q=<script>alert(1)</script>
 1. Envías el payload → se guarda
 2. Recargas la página
 3. 💥 `alert(1)` aparece automáticamente
+![XSS2](https://github.com/user-attachments/assets/59f05e7d-8973-4291-8e09-6c1a8e0e1b3d)
 
 **Lección:** Stored XSS — más peligroso. Permite robo de sesiones, keylogging, escalada a admin.
 
@@ -97,6 +99,7 @@ http://target.com/#<script>alert(1)</script>
 # Sin <script>
 http://target.com/#<img src=x onerror=alert(1)>
 ```
+![XSS3](https://github.com/user-attachments/assets/f811c184-1918-4a93-a1af-ba2050cb75d0)
 
 **Lección:** DOM-based XSS — el servidor nunca ve el payload, todo ocurre en el cliente.
 
@@ -137,6 +140,7 @@ onload="startTimer('');alert(1);//');"
 
 > **Tip CTF:** Si `alert` falla en iframe usa `prompt(1)` o `confirm(1)`.
 > URL encode: `'` → `%27`, `;` → `%3b`, `/` → `%2f`
+![XSS4](https://github.com/user-attachments/assets/f4cddb4b-62cb-4ec2-85fd-5f4bf835d2fd)
 
 **Lección:** Context matters — identifica ANTES si tu input cae en JS string, HTML o DOM sink.
 
@@ -162,6 +166,8 @@ onload="startTimer('');alert(1);//');"
 2. Ingresa cualquier email
 3. Haz clic en **"Next >>"**
 4. 💥 `alert(1)` se ejecuta
+![XSS5](https://github.com/user-attachments/assets/7c7aa36f-9c99-4d96-97cd-4a4672b30637)
+![XSS5v2](https://github.com/user-attachments/assets/5b5aa55c-fe4c-4523-a553-56fcbd390111)
 
 **Lección:** `javascript:` en `href` ejecuta código al hacer clic. También base de Open Redirect attacks.
 
@@ -186,6 +192,7 @@ if (url.match(/^https?:\/\//)) { /* bloqueado */ }
 - `HTTPS://` (mayúsculas) → evade el regex
 - `google.com/jsapi` → script legítimo y confiable
 - `?callback=alert` → Google JSAPI ejecuta `alert()` como callback
+![Finish](https://github.com/user-attachments/assets/6e18b3cc-de07-44c7-9ac7-093015178c81)
 
 **Lección:** Filtros case-sensitive son bypasseables. Nunca confíes en regex sin flags `/i`.
 
